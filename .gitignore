@@ -1,0 +1,10 @@
+node_modules/
+.idea/
+pool_configs/*.json
+!pool_configs/litecoin_example.json
+!pool_configs/garlicoin.json
+!pool_configs/gleec_btc.json
+docker-compose.yaml
+config/
+npm-debug.log
+
