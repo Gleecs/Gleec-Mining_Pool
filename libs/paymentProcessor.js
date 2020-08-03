@@ -21,7 +21,7 @@ module.exports = function (logger) {
     });
 
 
-    /*async.filter(enabledPools, function(coin, callback){
+    async.filter(enabledPools, function(coin, callback){
         SetupForPool(logger, poolConfigs[coin], function(setupResults){
             callback(setupResults);
         });
@@ -29,7 +29,7 @@ module.exports = function (logger) {
 
 
     , function(coins){
-        coins.forEach(function(coin){
+        enabledPools.forEach(function(coin){
 
             var poolOptions = poolConfigs[coin];
             var processingConfig = poolOptions.paymentProcessing;
@@ -44,7 +44,7 @@ module.exports = function (logger) {
         });
     }
 
-    );*/
+    );
 
     async.filter(enabledPools, function (coin, callback) {
         SetupForPool(logger, poolConfigs[coin], function (setupResults) {
@@ -94,7 +94,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
 
     async.parallel([
         function (callback) {
-            daemon.cmd('validateaddress', [poolOptions.address], function (result) {
+            daemon.cmd('getaddressinfo', [poolOptions.address], function (result) {
                 if (result.error) {
                     logger.error(logSystem, logComponent, 'Error with payment processing daemon ' + JSON.stringify(result.error));
                     callback(true);
@@ -218,6 +218,8 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                             serialized: r
                         };
                     });
+//console.log(workers);
+//console.log(rounds);
 
                     callback(null, workers, rounds);
                 });
@@ -231,10 +233,11 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                     return ['gettransaction', [r.txHash]];
                 });
 
-                batchRPCcommand.push(['getaccount', [poolOptions.address]]);
+                //batchRPCcommand.push(['getaccount', [poolOptions.address]]);
 
                 startRPCTimer();
                 daemon.batchCmd(batchRPCcommand, function (error, txDetails) {
+//console.log(txDetails);
                     endRPCTimer();
 
                     if (error || !txDetails) {
@@ -330,6 +333,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
             /* Does a batch redis call to get shares contributed to each round. Then calculates the reward
                amount owned to each miner for each round. */
             function (workers, rounds, addressAccount, callback) {
+//console.log("GET SHARES");
 
                 var shareLookups = rounds.map(function (r) {
                     return ['hgetall', coin + ':shares:round' + r.height]
@@ -360,6 +364,8 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                             }
                         }
 
+//console.log("ROUND: " + round.category);
+
                         switch (round.category) {
                             case 'kicked':
                             case 'orphan':
@@ -380,6 +386,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                                     var workerRewardTotal = Math.floor(reward * percent);
                                     var worker = workers[workerAddress] = (workers[workerAddress] || {});
                                     worker.reward = (worker.reward || 0) + workerRewardTotal;
+					//console.log('worker reward total' + workerRewardTotal);
                                 }
                                 break;
                         }
@@ -397,6 +404,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
              if not sending the balance, the differnce should be +(the amount they earned this round)
              */
             function (workers, rounds, addressAccount, callback) {
+//console.log("YE");
 
                 var trySend = function (withholdPercent) {
                     var addressAmounts = {};
@@ -405,7 +413,13 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                         var worker = workers[w];
                         worker.balance = worker.balance || 0;
                         worker.reward = worker.reward || 0;
+//console.log('worker balance: ' + worker.balance);
+//console.log('worker reward: ' + worker.reward);
                         var toSend = (worker.balance + worker.reward) * (1 - withholdPercent);
+//console.log('-0000----');
+//console.log(toSend);
+//console.log(minPaymentSatoshis);
+//console.log('-0000----');
                         if (toSend >= minPaymentSatoshis) {
                             totalSent += toSend;
                             var address = worker.address = (worker.address || getProperAddress(w));
@@ -416,14 +430,22 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                             worker.balanceChange = Math.max(toSend - worker.balance, 0);
                             worker.sent = 0;
                         }
+//console.log(worker);
                     }
+//console.log("ABOUT TO SEND");
+//	console.log(addressAmounts);
+//	console.log(addressAccount);
+//console.log("______________________________");
+
 
                     if (Object.keys(addressAmounts).length === 0) {
                         callback(null, workers, rounds);
                         return;
                     }
 
-                    daemon.cmd('sendmany', [addressAccount || '', addressAmounts], function (result) {
+
+                    //daemon.cmd('sendmany', [addressAccount || '', addressAmounts], function (result) {
+                    daemon.cmd('sendmany', ['', addressAmounts], function (result) {
                         //Check if payments failed because wallet doesn't have enough coins to pay for tx fees
                         if (result.error && result.error.code === -6) {
                             var higherPercent = withholdPercent + 0.01;

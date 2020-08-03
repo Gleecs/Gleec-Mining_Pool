@@ -2,10 +2,10 @@
     "enabled": true,
     "coin": "gleecbtccoin.json",
 
-    "address": "FRw9qnsRafsMFx8HA6hmAhebA7SEJkHp4a",
+    "address": "FF3Vj5ZhHzeY1kkqgD5hnL3PFXKe7aMcUQ",
 
-    "rewardRecipients": {
-        "FJuQqv5J9VNYHXQJcoJiZLrs4FHw1SZt5Q": 1
+    "rewardRecipients":{ 
+        "FF3Vj5ZhHzeY1kkqgD5hnL3PFXKe7aMcUQ": 0.2
     },
 
     "paymentProcessing": {
@@ -22,7 +22,10 @@
 
     "ports": {
         "3256": {
-            "diff": 256
+            "diff": 170000
+        },
+        "3356": {
+            "diff": 170000
         }
     },
 

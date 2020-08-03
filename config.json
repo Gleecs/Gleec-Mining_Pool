@@ -1,5 +1,5 @@
 {
-    "logLevel": "warning",
+    "logLevel": "debug",
     "logColors": true,
 
     "cliPort": 17117,
@@ -15,7 +15,7 @@
         "connectionTimeout": 180,
         "emitInvalidBlockHashes": false,
         "validateWorkerUsername": true,
-        "stratumPassword": "aEHiL50I4haflBbCz8QSwCKkN4SWvLOr",
+        "stratumPassword": "x",
         "tcpProxyProtocol": false,
         "shareDiff": 5,
         "banning": {
@@ -35,7 +35,7 @@
         "enabled": true,
         "host": "78.142.6.63",
         "port": 8080,
-        "stratumHost": "78.142.6.63",
+        "stratumHost": "gleecpool.com",
         "stats": {
             "updateInterval": 60,
             "historicalRetention": 43200,
