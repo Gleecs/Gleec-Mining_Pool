@@ -2,24 +2,31 @@
 
     #topCharts {
         padding: 18px;
+		color: white;
+		font-weight:bold;
     }
 
     #topCharts > div > div > svg {
         display: block;
         height: 280px;
+		color: black;
     }
 
     .chartWrapper {
-        border: solid 1px #c7c7c7;
+        border: solid 1px #944dff;
         border-radius: 5px;
         padding: 5px;
         margin-bottom: 18px;
+		color: #white;
+		font-size: 0.9em;
+		font-weight:bold;
     }
 
     .chartLabel {
         font-size: 1.2em;
         text-align: center;
         padding: 4px;
+		color: white;
     }
 
     .chartHolder {
@@ -34,7 +41,7 @@
 
 
 <div id="topCharts">
-
+<img src="/static/logopool3.png" alt="Paris" class="center">
 {{ for(var pool in it.stats.pools) { }}
 
     <div class="chartWrapper">

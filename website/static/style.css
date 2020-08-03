@@ -3,8 +3,10 @@ html, button, input, select, textarea, .pure-g [class *= "pure-u"], .pure-g-r [c
 }
 
 html{
-    background: #2d2d2d;
+    
+	background-image:url('/static/bg.jpg');
     overflow-y: scroll;
+	
 }
 
 body{
@@ -12,12 +14,16 @@ body{
     flex-direction: column;
     max-width: 1160px;
     margin: 0 auto;
+	
 }
 
 header > .home-menu{
     background: inherit !important;
     height: 54px;
     display: flex;
+	
+	
+	
 }
 
 header > .home-menu > a.pure-menu-heading, header > .home-menu > ul, header > .home-menu > ul > li{
@@ -25,44 +31,53 @@ header > .home-menu > a.pure-menu-heading, header > .home-menu > ul, header > .h
     align-items: center;
     justify-content: center;
     line-height: normal !important;
+	
+	
 }
 
 header > .home-menu > a.pure-menu-heading{
-    color: white;
+    color: #8c41ff;
     font-size: 1.5em;
+	
 }
 
 header > .home-menu > ul > li > a{
-    color: #ced4d9;
-}
-
-header > .home-menu > ul > li > a:hover, header > .home-menu > ul > li > a:focus{
-    background: inherit !important;
-}
-
-header > .home-menu > ul > li > a:hover, header > .home-menu > ul > li.pure-menu-selected > a{
     color: white;
 }
 
+header > .home-menu > ul > li > a:#8c41ff, header > .home-menu > ul > li > a:focus{
+    background: inherit !important;
+}
+
+header > .home-menu > ul > li > a:#8c41ff, header > .home-menu > ul > li.pure-menu-selected > a{
+    color: #8c41ff;
+	
+	
+}
+
 main{
-    background-color: #ebf4fa;
+    background-color: #transparent;
     position: relative;
+	
 }
 
 footer{
     text-align: center;
-    color: #b3b3b3;
+    color: #8c41ff;
     text-decoration: none;
     font-size: 0.8em;
     padding: 15px;
     line-height: 24px;
+	
 }
 
 footer a{
-    color: #fff;
+    color: #8c41ff;
     text-decoration: none;
 }
 
 footer iframe{
     vertical-align: middle;
+	color: #8c41ff;
+
 }

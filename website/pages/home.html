@@ -1,26 +1,14 @@
 <style>
     #boxWelcome{
-        background-color: #0eafc7;
-        color: white;
-        margin: 18px;
+        background-color: #transparent;
+        color: #8c41ff;
+
     }
     #logoImg{
-        height: 285px;
-        margin: 55px;
+        height: 1000px;
+        margin: 1px;
     }
-    #welcomeText{
-        font-size: 2.7em;
-        margin: 50px 18px 10px 18px;
-    }
-    #welcomeItems{
-        list-style-type: none;
-        font-size: 1.3em;
-        padding: 0 !important;
-        margin: 0 0 0 18px !important;
-    }
-    #welcomeItems > li{
-        margin: 30px !important;
-    }
+
     #boxesLower {
         margin: 0 9px;
     }
@@ -35,28 +23,31 @@
         flex-direction: column;
     }
     .boxLowerHeader{
-        font-size: 1.3em;
         margin: 0 0 5px 10px;
+		font-weight:bold;
+		font-size: 1.2em;
     }
 
 
     #boxStatsLeft{
-        background-color: #b064e1;
+        background-color: #transparent;
     }
     #boxStatsRight{
-        background-color: #10bb9c;
+        background-color: #transparent;
     }
     .boxStats{
-        color: white;
+        color: #8c41ff;
     }
     .boxStatsList{
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
-        opacity: 0.77;
+        opacity: 1.00;
         margin-bottom: 5px;
         flex: 1 1 auto;
         align-content: center;
+		font-weight:bold;
+		font-size: 0.8em;
     }
     .boxStatsList i.fa{
         height: 15px;
@@ -75,20 +66,21 @@
 
 
 <div class="pure-g-r" id="boxWelcome">
-    <div class="pure-u-1-3">
-        <img id="logoImg" src="/static/logo.svg">
-    </div>
-    <div class="pure-u-2-3">
-        <div id="welcomeText">Welcome to the future of mining</div>
-        <ul id="welcomeItems">
-            <li>Low fees</li>
-            <li>High performance Node.js backend</li>
-            <li>User friendly mining client</li>
-            <li>Multi-coin / multi-pool</li>
-        </ul>
-    </div>
+	<img src="/static/logopool.png" alt="Paris" class="center">
 </div>
-
+	<img src="/static/bg2.png" alt="Paris" class="center">
+	
+	
+	<div>
+	
+	<img src="/static/getrental.png" alt="Paris" class="center">
+	</div>
+	
+	
+	<a href="https://bit.ly/39e5j89"><img src="/static/nicehash.png" /></a>
+	<a href="https://bit.ly/2WFHhOp"><img src="/static/rental.png" /></a>
+	<a href="https://gleechain.com/"><img src="/static/explorer.png" /></a> 
+	
 <div class="pure-g-r" id="boxesLower">
 
     <div class="pure-u-1-2">
@@ -108,7 +100,7 @@
 
     <div class="pure-u-1-2">
         <div class="boxStats" id="boxStatsRight">
-            <div class="boxLowerHeader">Pools / Coins</div>
+            <div class="boxLowerHeader">Pools / Gleec</div>
             <div class="boxStatsList">
                 {{ for(var pool in it.stats.pools) { }}
                 <div>

@@ -13,14 +13,16 @@
     }
 
     #menu{
-        background-color: #3d3d3d;
+        background-color: #white;
         min-width: 170px;
+		font-weight:bold;
     }
 
     #menu > .menuHeader{
-        color: #e3f7ff;
-        border-bottom: 1px solid #7f878b;
+        color: #8c41ff;
+        border-bottom: 1px solid white;
         font-size: 1.2em;
+		font-weight:bold;
         padding: 16px 16px 4px 15px;
     }
 
@@ -34,15 +36,16 @@
 
     .menuList > a{
         display: block;
-        color: #e3f7ff;
+        color: #8c41ff;
         text-decoration: none;
         padding: 7px;
         padding-left: 25px;
         text-transform: capitalize;
+		font-weight:bold;
     }
 
-    .menuList > a:hover{
-        color: #f69b3a;
+    .menuList > a:#8c41ff{
+        color: #8c41ff;
     }
 
     #main{
@@ -52,7 +55,7 @@
         margin: 18px;
     }
     .miningOption{
-        color: white;
+        color: #8c41ff;
         display: flex;
         flex: 1 1 auto;
         flex-direction: row;
@@ -63,15 +66,15 @@
         text-decoration: none;
     }
 
-    a.miningOption:hover{
-        color: #f69b3a;
+    a.miningOption:#8c41ff{
+        color: #8c41ff;
     }
 
     .miningOption:first-child{
         background-color: #0eafc7;
     }
     .miningOption:last-child{
-        background-color: #b064e1;
+        background-color: #aeaeae;
     }
     .miningOptionNum{
         font-size: 6em;
@@ -96,12 +99,12 @@
         text-align: center;
     }
     #orLine{
-        border-bottom: 1px solid #c2cacf;
+        border-bottom: 1px solid #42484c;
         height: 19px;
         margin-bottom: -13px;
     }
     #orText{
-        background-color: #ebf4fa;
+        background-color: #transparent;
         color: #5c5c5c;
         display: inline-block;
         width: 35px;
@@ -115,23 +118,26 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: black;
+        background-color: #17181a;
         opacity: 0.0;
     }
     #coinInfo{
         display: flex;
         flex-direction: column;
-        color: white;
-        width: 750px;
+        color: #8c41ff;
+        width: 600px;
         min-height: 400px;
         top: 50px;
         left: 50%;
         margin-left: -375px;
         position: absolute;
-        background-color: #f06350;
+        background-color: #291449;
+
     }
     #coinInfo .coinInfoName{
         text-transform: capitalize;
+		color: #8c41ff;
+
     }
     #coinInfo > div:first-of-type{
         font-size: 1.8em;
@@ -172,10 +178,10 @@
         width: 60px;
         height: 60px;
         text-align: center;
-        color: white;
+        color: #50f0e3;
         text-decoration: none;
     }
-    #coinInfoClose:hover{
+    #coinInfoClose:#8c41ff{
         color: #50f0e3;
     }
 </style>
@@ -210,8 +216,8 @@
             <a href="#" class="poolOption" data-info="{{=info}}">{{=p}}</a>
         {{ } }}
         </div>
-
-        <div class="menuHeader">Coins</div>
+<img src="/static/logopool3.png" alt="Paris" class="center">
+        <div class="menuHeader">Coins list</div>
         <div class="menuList" id="coinList">
             {{ for(var pool in it.poolsConfigs) {
                 var info = JSON.stringify({
@@ -227,25 +233,7 @@
     </div>
 
     <div id="main">
-        <a href="#" class="miningOption" id="nompAppDownload">
-            <div class="miningOptionNum">1.</div>
-            <div class="miningOptionInstructions">
-                <div>Download NOMP App</div>
-                <div>Our preconfigured app makes mining that easy</div>
-            </div>
-        </a>
-        <div id="orHolder">
-            <div id="orLine"></div>
-            <div id="orText">or</div>
-        </div>
-        <a href="#" class="miningOption" id="coinGlowTrigger">
-            <div class="miningOptionNum">2.</div>
-            <div class="miningOptionInstructions">
-                <div>Select a coin for connection details</div>
-                <div>Configurations for each coin are available for advanced miners</div>
-            </div>
-        </a>
-    </div>
+
 </div>
 
 <a href="#" id="coinInfoBackground" class="hidden"></a>
@@ -260,7 +248,7 @@
         </div>
         <div id="coinInfoRowValues">
             <div id="coinInfoUsername"></div>
-            <div>x</div>
+            <div>anything</div>
         </div>
     </div>
 </div>
