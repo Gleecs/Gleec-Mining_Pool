@@ -7,3 +7,4 @@ pool_configs/*.json
 docker-compose.yaml
 config/
 npm-debug.log
+website/static/all.zip
