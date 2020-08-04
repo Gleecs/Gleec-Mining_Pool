@@ -3,10 +3,9 @@ html, button, input, select, textarea, .pure-g [class *= "pure-u"], .pure-g-r [c
 }
 
 html{
-    
-	background-image:url('/static/bg.jpg');
+    background-image:url('/static/bg.jpg');
+    background-color: #17181A;
     overflow-y: scroll;
-	
 }
 
 body{
@@ -14,16 +13,12 @@ body{
     flex-direction: column;
     max-width: 1160px;
     margin: 0 auto;
-	
 }
 
 header > .home-menu{
     background: inherit !important;
     height: 54px;
     display: flex;
-	
-	
-	
 }
 
 header > .home-menu > a.pure-menu-heading, header > .home-menu > ul, header > .home-menu > ul > li{
@@ -31,14 +26,11 @@ header > .home-menu > a.pure-menu-heading, header > .home-menu > ul, header > .h
     align-items: center;
     justify-content: center;
     line-height: normal !important;
-	
-	
 }
 
 header > .home-menu > a.pure-menu-heading{
     color: #8c41ff;
     font-size: 1.5em;
-	
 }
 
 header > .home-menu > ul > li > a{
@@ -51,14 +43,20 @@ header > .home-menu > ul > li > a:#8c41ff, header > .home-menu > ul > li > a:foc
 
 header > .home-menu > ul > li > a:#8c41ff, header > .home-menu > ul > li.pure-menu-selected > a{
     color: #8c41ff;
-	
-	
 }
 
 main{
     background-color: #transparent;
     position: relative;
-	
+    margin: 0 auto;
+    color: white;
+}
+
+ul.api a{
+    color: #a03fff;
+}
+ul.api a:visited{
+    color: #8052c8;
 }
 
 footer{
@@ -68,7 +66,6 @@ footer{
     font-size: 0.8em;
     padding: 15px;
     line-height: 24px;
-	
 }
 
 footer a{
@@ -78,6 +75,18 @@ footer a{
 
 footer iframe{
     vertical-align: middle;
-	color: #8c41ff;
+    color: #8c41ff;
+}
 
+.pure-table td{
+    color: #444;
+}
+.pure-menu .pure-menu-selected a{
+    color: #a164ff;
+    text-decoration: underline
+}
+
+.pure-menu li a:hover, .pure-menu li a:focus{
+    background-color: unset;
+    text-decoration: underline
 }
