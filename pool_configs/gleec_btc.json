@@ -2,16 +2,16 @@
     "enabled": true,
     "coin": "gleecbtccoin.json",
 
-    "address": "FF3Vj5ZhHzeY1kkqgD5hnL3PFXKe7aMcUQ",
+    "address": "FAKrxBnLLuxkoPspdvmSZnYaH2BvRaLZNv",
 
     "rewardRecipients":{ 
-        "FF3Vj5ZhHzeY1kkqgD5hnL3PFXKe7aMcUQ": 0.2
+        "FAKrxBnLLuxkoPspdvmSZnYaH2BvRaLZNv": 2
     },
 
     "paymentProcessing": {
         "enabled": true,
-        "paymentInterval": 300,
-        "minimumPayment": 0.01,
+        "paymentInterval": 3600,
+        "minimumPayment": 1,
         "daemon": {
             "host": "127.0.0.1",
             "port": 9999,
