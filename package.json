@@ -44,7 +44,7 @@
         "node-json-minify": "^1.0.0",
         "node-watch": "^0.5.5",
         "nonce": "^1.0.4",
-        "redis": "^2.7.1",
+        "redis": "^3.1.1",
         "request": "^2.81.0",
         "stratum-pool": "https://github.com/shamimiceewu025/stratum-pool.git"
     },
