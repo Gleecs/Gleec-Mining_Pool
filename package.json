@@ -31,7 +31,7 @@
         "url": "https://github.com/garlicoin-project/grlc-nomp.git"
     },
     "dependencies": {
-        "async": "^2.5.0",
+        "async": "^2.6.4",
         "bignum": "^0.12.5",
         "body-parser": "^1.17.2",
         "colors": "^1.1.2",
